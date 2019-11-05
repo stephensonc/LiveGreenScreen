@@ -100,12 +100,16 @@ def set_color():
     print("1. Green")
     print("2. Blue")
     print("3. Go Back")
-    response = input()
+    response = int(input())
     if response == 1:
         color = "GREEN"
+        print("Setting color to: ", color)
+        time.sleep(3)
         lower_bound = np.array([35, 30, 30])
         upper_bound = np.array([70, 255, 255])
     elif response == 2:
         color = "BLUE"
+        print("Setting color to: ", color)
+        time.sleep(3)
         lower_bound = np.array([105, 30, 30])
         upper_bound = np.array([130, 255, 255])
