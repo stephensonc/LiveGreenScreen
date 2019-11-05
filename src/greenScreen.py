@@ -73,7 +73,7 @@ def start_video():
 def set_background():
     global background, bg_dimensions, has_set_background
     while True:  # This loop sanitizes inputs
-        path_to_image = "../backgrounds/" + \
+        path_to_image = "./backgrounds/" + \
             input("Please enter the name of the file: ")
         print("Getting image")
         background = cv2.imread(path_to_image, 1)
