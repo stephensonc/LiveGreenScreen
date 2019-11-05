@@ -5,10 +5,9 @@ import greenScreen
 def print_menu():
     clear_screen()
     print("Menu:")
-    print("1. Start Video")
-    print("2. Choose Background")
-    print("3. Stop Video")
-    print("4. Exit")
+    print("1. Choose Background")
+    print("2. Start Video")
+    print("3. Exit")
     return int(input())
 
 
@@ -21,13 +20,9 @@ def clear_screen():
 
 if __name__ == '__main__':
     response = 0
-    while(response != 4):
+    while(response != 3):
         response = print_menu()
         if response == 1:
-            greenScreen.start_video()
+            greenScreen.set_background()
         elif response == 2:
-            filepath = input("Please enter the name of the file: ")
-            print("Getting image")
-            greenScreen.set_background("../backgrounds/" + filepath)
-        elif response == 3:
-            print("Stopping video")
+            greenScreen.start_video()
