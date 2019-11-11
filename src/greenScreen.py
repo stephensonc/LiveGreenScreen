@@ -22,7 +22,7 @@ def start_video():
     else:
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, bg_dimensions[0])
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, bg_dimensions[1])
-        vid = cv2.VideoWriter('Video.avi',
+        vid = cv2.VideoWriter('Video.mjpg',
                               cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10,
                               (bg_dimensions[1], bg_dimensions[0]))
     while(cap.isOpened()):
@@ -49,8 +49,8 @@ def start_video():
 
             # Mask refining
             mask1 = cv2.morphologyEx(mask1, cv2.MORPH_OPEN,
-                                     np.ones((3, 3), np.uint8), 2)
-            mask1 = cv2.dilate(mask1, np.ones((3, 3), np.uint8), 1)
+                                     np.ones((2, 2), np.uint8), 2)
+            mask1 = cv2.dilate(mask1, np.ones((2, 2), np.uint8), 1)
             mask2 = cv2.bitwise_not(mask1)
 
             # Generating the final output
@@ -72,7 +72,7 @@ def start_video():
 
 def set_background():
     global background, bg_dimensions, has_set_background
-    while True:  # This loop sanitizes inputs
+    while True:  # This loop sanitizes input
         path_to_image = "./backgrounds/" + \
             input("Please enter the name of the file: ")
         print("Getting image")
@@ -105,11 +105,11 @@ def set_color():
         color = "GREEN"
         print("Setting color to: ", color)
         time.sleep(3)
-        lower_bound = np.array([35, 30, 30])
+        lower_bound = np.array([35, 25, 25])
         upper_bound = np.array([70, 255, 255])
     elif response == 2:
         color = "BLUE"
         print("Setting color to: ", color)
         time.sleep(3)
-        lower_bound = np.array([105, 30, 30])
-        upper_bound = np.array([130, 255, 255])
+        lower_bound = np.array([100, 25, 25])
+        upper_bound = np.array([135, 255, 255])
