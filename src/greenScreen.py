@@ -22,7 +22,7 @@ def start_video():
     else:
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, bg_dimensions[0])
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, bg_dimensions[1])
-        vid = cv2.VideoWriter('Video.mjpg',
+        vid = cv2.VideoWriter('./videos/Video.avi',
                               cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10,
                               (bg_dimensions[1], bg_dimensions[0]))
     while(cap.isOpened()):
