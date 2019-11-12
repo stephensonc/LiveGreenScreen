@@ -1,20 +1,28 @@
 # LiveGreenScreen
 This program is designed as a portable and accessible live green screen program.
 
-#Table of Contents:
- Optionally, include a table of contents in order to allow other people to quickly navigate especially long or detailed READMEs.
+Installation:
+---
+- **Windows:**
+  * Install python3 from the [official site](https://www.python.org/downloads/windows/)
+  * Install opencv based on instructions found [here](https://docs.opencv.org/master/d5/de5/tutorial_py_setup_in_windows.html)
+- **Linux:**
+  * In a Terminal window, type in `sudo apt-get install python3.6`
+  * Next, type `sudo apt-get install python-opencv`
+  * To check that everything installed properly, enter `python3` and then enter the following commands:
+  ```Python
+  import cv2
+  print(cv2.__version__)
+  ```
 
-#Installation:
- Installation is the next section in an effective README. Tell other users how to install your project locally. Optionally, include a gif to make the process even more clear for other people.
 
-#Usage:
- The next section is usage, in which you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+## Usage:
+- **Windows:**
+  - Open Command Prompt
+  - In Command Prompt, navigate to the top level directory
+  - Type `python3 ./src/Main.py`
+- **Linux:**
+  - Navigate to the top level directory in Terminal
+  - Enter the command `./run.sh`
 
-#Contributing:
-Larger projects often have sections on contributing to their project, in which contribution instructions are outlined. Sometimes, this is a separate file. If you have specific contribution preferences, explain them so that other developers know how to best contribute to your work. To learn more about how to help others contribute, check out the guide for setting guidelines for repository contributors.
-
-#Credits:
-Include a section for credits in order to highlight and link to the authors of your project.
-
-#License:
-Finally, include a section for the license of your project. For more information on choosing a license, check out GitHub’s licensing guide!
+## License:
