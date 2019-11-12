@@ -1,4 +1,4 @@
 *.avi
 *.pyc
-__pycache__
-videos
+__pycache__/
+videos/

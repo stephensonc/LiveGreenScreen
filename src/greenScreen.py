@@ -7,13 +7,14 @@ import UI
 
 def process_frame(img, bg_img, color):
     # Converting from BGR to HSV
+    dilate_size = 3
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # mask to detect color
     mask1 = cv2.inRange(hsv, color.min_val, color.max_val)
     # Mask refining
     mask1 = cv2.morphologyEx(mask1, cv2.MORPH_OPEN,
-                             np.ones((2, 2), np.uint8), 2)
-    mask1 = cv2.dilate(mask1, np.ones((2, 2), np.uint8), 1)
+                             np.ones((dilate_size, dilate_size), np.uint8), 2)
+    mask1 = cv2.dilate(mask1, np.ones((dilate_size, dilate_size), np.uint8), 1)
     mask2 = cv2.bitwise_not(mask1)
     # Generating the final output
     res1 = cv2.bitwise_and(bg_img, bg_img, mask=mask1)
