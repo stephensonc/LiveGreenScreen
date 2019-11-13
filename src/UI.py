@@ -1,5 +1,6 @@
 from os import system, name
-import greenScreen
+from Color import Color
+import IO
 
 
 def print_menu():
@@ -19,13 +20,38 @@ def clear_screen():
         system('clear')
 
 
-if __name__ == '__main__':
-    response = 0
-    while(response != 4):
-        response = print_menu()
-        if response == 1:
-            greenScreen.set_background()
-        elif response == 2:
-            greenScreen.start_video()
-        elif response == 3:
-            greenScreen.set_color()
+def prompt_for_color():
+    clear_screen()
+    print("Choose a color for your screen:")
+    print("1. Green")
+    print("2. Blue")
+    response = int(input())
+    if response == 1:
+        return Color('green')
+    elif response == 2:
+        return Color('blue')
+    else:
+        print("Response not found, please try again")
+
+
+def prompt_for_save():
+    response = input("Do you want to save a video? (Y/N)").upper()
+    if 'Y' in response:
+        return True
+    else:
+        return False
+
+
+def prompt_for_filename():
+    return input("Please enter the name of your file: ")
+
+
+def prompt_for_background():
+    while True:
+        path_to_image = "./backgrounds/" + prompt_for_filename()
+        background = IO.get_image(path_to_image)
+        if(background is None):
+            print("\nImage reading failed, please try again.\n")
+        else:
+            break
+    return background
