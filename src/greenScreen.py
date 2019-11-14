@@ -29,7 +29,6 @@ def process_frame(img, bg_img, color):
 
 
 def live_gs(save_video, bg_img, color):
-    print("Detecting: " + color.name)
     cap = cv2.VideoCapture(0)
     if bg_img is None:
         bg_img = IO.get_image('./backgrounds/london2.jpg')
@@ -39,6 +38,7 @@ def live_gs(save_video, bg_img, color):
     if save_video:
         name = UI.prompt_for_filename()
         vid = IO.create_video(name, bg_dimensions[1], bg_dimensions[0])
+    print("Detecting: " + color.name)
     print(bg_dimensions)
     while(cap.isOpened()):
         success, img = cap.read()
