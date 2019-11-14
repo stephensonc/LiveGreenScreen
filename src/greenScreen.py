@@ -48,7 +48,7 @@ def live_gs(save_video, bg_img, color):
         output_image = process_frame(img, bg_img, color)
         cv2.imshow('Green Screen (Press esc to close)', output_image)
         if save_video:
-            IO.save_image_to_video(vid, img)
+            IO.save_image_to_video(vid, output_image)
         k = cv2.waitKey(10)
         if k == 27:
             if save_video:
