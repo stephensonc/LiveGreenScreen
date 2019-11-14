@@ -13,9 +13,9 @@ class Color:
         global min_val, max_val
         color = color_name
         if(color == 'green'):
-            min_val = np.array([35, 50, 50])
+            min_val = np.array([35, 60, 60])
             max_val = np.array([75, 255, 255])
         elif(color == 'blue'):
-            min_val = np.array([100, 50, 50])
+            min_val = np.array([100, 60, 60])
             max_val = np.array([135, 255, 255])
         return color, min_val, max_val

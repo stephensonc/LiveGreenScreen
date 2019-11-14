@@ -3,7 +3,7 @@ import cv2
 import IO
 import UI
 
-dilate_size = 3
+dilate_size = 2
 
 
 def process_frame(img, bg_img, color):
