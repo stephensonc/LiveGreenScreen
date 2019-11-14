@@ -4,10 +4,11 @@ import cv2
 import IO
 import UI
 
+dilate_size = 3
+
 
 def process_frame(img, bg_img, color):
     # Converting from BGR to HSV
-    dilate_size = 3
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # mask to detect color
     mask1 = cv2.inRange(hsv, color.min_val, color.max_val)
@@ -32,10 +33,10 @@ def live_gs(save_video, bg_img, color):
     bg_dimensions = bg_img.shape
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, bg_dimensions[0])
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, bg_dimensions[1])
-    print(bg_dimensions)
     if save_video:
         name = UI.prompt_for_filename()
         vid = IO.create_video(name, bg_dimensions[1], bg_dimensions[0])
+    print(bg_dimensions)
     while(cap.isOpened()):
         success, img = cap.read()
         if not success:

@@ -1,6 +1,6 @@
 import greenScreen
 from Color import Color
-import time
+# import time
 import UI
 
 
@@ -10,7 +10,7 @@ def main():
     color = Color('green')
     # print("Color: ", color.name, "min_val: ",
     #       color.min_val, "max_val", color.max_val)
-    time.sleep(3)
+    # time.sleep(1)
     while(response != 4):
         response = UI.print_menu()
         if response == 1:

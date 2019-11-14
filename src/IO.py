@@ -5,7 +5,7 @@ def create_video(name, width, height):
     print("width: ", width, "Height: ", height)
     vid = cv2.VideoWriter('./videos/' + name + '.avi',
                           cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 30,
-                          width, height)
+                          (width, height))
     return vid
 
 
