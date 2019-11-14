@@ -7,6 +7,9 @@ dilate_size = 2
 
 
 def process_frame(img, bg_img, color):
+    bg_shape = (bg_img.shape[1], bg_img.shape[0])
+    # Resize image to reflect bagckround size
+    img = cv2.resize(img, bg_shape)
     # Converting from BGR to HSV
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # mask to detect color
@@ -43,8 +46,6 @@ def live_gs(save_video, bg_img, color):
         img = cv2.flip(img, 1)
         if not success:
             break
-        # Resize image to reflect bagckround size
-        img = cv2.resize(img, (bg_dimensions[1], bg_dimensions[0]))
         output_image = process_frame(img, bg_img, color)
         cv2.imshow('Green Screen (Press esc to close)', output_image)
         if save_video:
