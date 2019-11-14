@@ -1,5 +1,4 @@
 import numpy as np
-import time
 import cv2
 import IO
 import UI
@@ -32,7 +31,6 @@ def process_frame(img, bg_img, color):
 def live_gs(save_video, bg_img, color):
     print("Detecting: " + color.name)
     cap = cv2.VideoCapture(0)
-    time.sleep(3)
     if bg_img is None:
         bg_img = IO.get_image('./backgrounds/london2.jpg')
     bg_dimensions = bg_img.shape
@@ -44,6 +42,7 @@ def live_gs(save_video, bg_img, color):
     print(bg_dimensions)
     while(cap.isOpened()):
         success, img = cap.read()
+        img = cv2.flip(img, 1)
         if not success:
             break
         output_image = process_frame(img, bg_img, color)
