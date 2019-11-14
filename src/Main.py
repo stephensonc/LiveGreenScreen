@@ -1,27 +1,27 @@
-import greenScreen
 from Color import Color
-# import time
+import greenScreen
+import time
 import UI
 
 
 def main():
-    response = 0
+    response = ''
     background = None
     color = Color('green')
-    # print("Color: ", color.name, "min_val: ",
-    #       color.min_val, "max_val", color.max_val)
-    # time.sleep(1)
-    while(response != 4):
+    while '4' not in response:
         response = UI.print_menu()
-        if response == 1:
+        if '1' in response:
             background = UI.prompt_for_background()
-        elif response == 2:
+        elif '2' in response:
             save = UI.prompt_for_save()
             greenScreen.live_gs(save, background, color)
-        elif response == 3:
+        elif '3' in response:
             color = UI.prompt_for_color()
-        else:
+        elif '4' in response:
             return
+        else:
+            print("\nInput not recognized, please try again.\n")
+            time.sleep(2)
 
 
 if __name__ == '__main__':

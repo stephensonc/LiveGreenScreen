@@ -1,5 +1,6 @@
 from os import system, name
 from Color import Color
+import time
 import IO
 
 
@@ -10,7 +11,7 @@ def print_menu():
     print("2. Start Video")
     print("3. Change Color to Detect")
     print("4. Exit")
-    return int(input())
+    return input()
 
 
 def clear_screen():
@@ -25,10 +26,10 @@ def prompt_for_color():
     print("Choose a color for your screen:")
     print("1. Green")
     print("2. Blue")
-    response = int(input())
-    if response == 1:
+    response = input()
+    if '1' in response:
         return Color('green')
-    elif response == 2:
+    elif '2' in response:
         return Color('blue')
     else:
         print("Response not found, please try again")
@@ -52,6 +53,7 @@ def prompt_for_background():
         background = IO.get_image(path_to_image)
         if(background is None):
             print("\nImage reading failed, please try again.\n")
+            time.sleep(2)
         else:
             break
     return background
