@@ -14,7 +14,7 @@ def main():
             background = UI.prompt_for_background()
         elif '2' in response:
             save = UI.prompt_for_save()
-            greenScreen.live_gs(save, background, color)
+            greenScreen.run_gs(save, background, color)
         elif '3' in response:
             color = UI.prompt_for_color()
         elif '4' in response:

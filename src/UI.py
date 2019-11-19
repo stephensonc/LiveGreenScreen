@@ -4,6 +4,7 @@ import time
 import IO
 
 
+# prints the main menu
 def print_menu():
     clear_screen()
     print("Menu:")
@@ -15,12 +16,13 @@ def print_menu():
 
 
 def clear_screen():
-    if name == 'nt':
+    if name == 'nt':  # For windows users
         system('cls')
     else:
-        system('clear')
+        system('clear')  # for Linux and Mac
 
 
+# sets the color detected by the program
 def prompt_for_color():
     clear_screen()
     print("Choose a color for your screen:")
@@ -35,18 +37,21 @@ def prompt_for_color():
         print("Response not found, please try again")
 
 
+# Asks if the user wants to save a video
 def prompt_for_save():
-    response = input("Do you want to save a video? (Y/N)").upper()
+    response = input("Do you want to save a video? (y/N) ").upper()
     if 'Y' in response:
         return True
     else:
         return False
 
 
+# Asks the user to input a filename
 def prompt_for_filename():
     return input("Please enter the name of your file: ")
 
 
+# Prompts the user for a background image and returns it
 def prompt_for_background():
     while True:
         path_to_image = "./backgrounds/" + prompt_for_filename()

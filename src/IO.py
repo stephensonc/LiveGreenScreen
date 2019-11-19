@@ -1,6 +1,13 @@
 import cv2
 
 
+# Creates a cv2 VideoWriter object to be used to store video
+# Parameters:
+# name: String representing a filename without an extension
+# width: The width of the video frame
+# height: The height of the video frame
+# Returns:
+# vid: a cv2 VideoWriter
 def create_video(name, width, height):
     # print("width: ", width, "Height: ", height)
     vid = cv2.VideoWriter('./videos/' + name + '.avi',
@@ -9,10 +16,15 @@ def create_video(name, width, height):
     return vid
 
 
+# Writes img to a specified VideoWriter
+# Parameters:
+# vid: a cv2 VideoWriter object that creates video files
+# img: a numpy array of pixels to write to a video file as an image
 def save_image_to_video(vid, img):
     vid.write(img)
 
 
+# Retrieves an image from the filesystem
 def get_image(path_to_image):
     # print("Getting image")
     return cv2.imread(path_to_image, 1)

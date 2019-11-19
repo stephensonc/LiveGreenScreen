@@ -3,9 +3,19 @@ import cv2
 import IO
 import UI
 
-dilate_size = 2
+DILATE_SIZE = 2
 
 
+# Outputs img with all pixels with the detected color replaced with the
+#     corresponding pixels from a background image
+# Parameters:
+# img: A numpy array of pixels in a given source image in BGR format
+# bg_img: A numpy array of pixels in a background image of the user's choice
+# color: a Color object that stores an acceptable range of hsv values for a
+#     color
+# Returns:
+# final_output: img, but with all pixels containing the detected color replaced
+#     with the corresponding pixels from a background image
 def process_frame(img, bg_img, color):
     bg_shape = (bg_img.shape[1], bg_img.shape[0])
     # Resize image to reflect bagckround size
@@ -16,8 +26,8 @@ def process_frame(img, bg_img, color):
     mask1 = cv2.inRange(hsv, color.min_val, color.max_val)
     # Mask refining
     mask1 = cv2.morphologyEx(mask1, cv2.MORPH_OPEN,
-                             np.ones((dilate_size, dilate_size), np.uint8), 2)
-    mask1 = cv2.dilate(mask1, np.ones((dilate_size, dilate_size), np.uint8), 1)
+                             np.ones((DILATE_SIZE, DILATE_SIZE), np.uint8), 2)
+    mask1 = cv2.dilate(mask1, np.ones((DILATE_SIZE, DILATE_SIZE), np.uint8), 1)
     mask2 = cv2.bitwise_not(mask1)
     # resizing masks
     # mask1 = cv2.resize(mask1, bg_shape)
@@ -29,7 +39,14 @@ def process_frame(img, bg_img, color):
     return final_output
 
 
-def live_gs(save_video, bg_img, color):
+# Called once from Main and loops internally to process and display images
+# Parameters:
+# save_video: boolean from user that indicates if they want to save a video
+# bg_img: a numpy array in which each element represents a pixel in BGR format
+# color: a Color object that stores an acceptable range of hsv values for a
+#     color
+# Displays processed images to the screen
+def run_gs(save_video, bg_img, color):
     cap = cv2.VideoCapture(0)
     if bg_img is None:
         bg_img = IO.get_image('./backgrounds/london2.jpg')
@@ -43,10 +60,10 @@ def live_gs(save_video, bg_img, color):
     print(bg_dimensions)
     while(cap.isOpened()):
         success, img = cap.read()
-        img = cv2.flip(img, 1)
         if not success:
             break
         output_image = process_frame(img, bg_img, color)
+        output_image = cv2.flip(output_image, 1)
         cv2.imshow('Green Screen (Press esc to close)', output_image)
         if save_video:
             IO.save_image_to_video(vid, output_image)
