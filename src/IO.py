@@ -11,7 +11,7 @@ import os
 # vid: a cv2 VideoWriter
 def create_video(name, width, height):
     # print("width: ", width, "Height: ", height)
-    vid = cv2.VideoWriter(os.path.join(".", "videos", name, ".avi"),
+    vid = cv2.VideoWriter(os.path.join('./videos/' + name + '.avi'),
                           cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 30,
                           (width, height))
     return vid
@@ -44,6 +44,6 @@ def correct_working_directory(directory):
     try:
         for sub_dir in sub_dirs:
             if sub_dir in directory:
-                    os.chdir('..')
+                    os.chdir('../')
     except NameError:
         print("Directory fixing failed")
