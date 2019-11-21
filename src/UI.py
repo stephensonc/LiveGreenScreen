@@ -48,14 +48,22 @@ def prompt_for_save():
 
 
 # Asks the user to input a filename
-def prompt_for_filename():
-    return input("Please enter the name of your file: ")
+# Parameters:
+# from_dir: boolean, specifies if a selection is to be made from a directory
+def prompt_for_filename(from_dir):
+    if from_dir:
+        folder = os.path.join(".", "backgrounds")
+        print("Please enter the name of the file you would like to open")
+        print(folder, ":", "\n", os.listdir(folder), "\n\n")
+        return input()
+    else:
+        return input("Please enter the name of your file (no extension): ")
 
 
 # Prompts the user for a background image and returns it
 def prompt_for_background():
     while True:
-        path_to_image = [".", "backgrounds", prompt_for_filename()]
+        path_to_image = [".", "backgrounds", prompt_for_filename(True)]
         background = IO.get_image(path_to_image)
         if(background is None):
             print("\nImage reading failed, please try again.\n")

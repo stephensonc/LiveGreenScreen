@@ -55,7 +55,7 @@ def run_gs(save_video, bg_img, color):
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, bg_dimensions[0])
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, bg_dimensions[1])
     if save_video:
-        name = UI.prompt_for_filename()
+        name = UI.prompt_for_filename(False)
         vid = IO.create_video(name, bg_dimensions[1], bg_dimensions[0])
     print("Detecting: " + color.name)
     print(bg_dimensions)
