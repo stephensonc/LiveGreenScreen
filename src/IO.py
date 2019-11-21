@@ -28,7 +28,11 @@ def save_image_to_video(vid, img):
 # Retrieves an image from the filesystem
 def get_image(path_to_image):
     # print("Getting image")
-    return cv2.imread(path_to_image, 1)
+    try:
+        img = cv2.imread(path_to_image, 1)
+    except FileNotFoundError:
+        print("File not found")
+    return img
 
 
 # Changes current directory to the top level directory of this project
