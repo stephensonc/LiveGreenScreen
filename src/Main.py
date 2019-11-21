@@ -2,12 +2,19 @@ from Color import Color
 import greenScreen
 import time
 import UI
+import IO
+import os
 
 
 def main():
     response = ''
     background = None
     color = Color('green')
+
+    start_dir = os.getcwd()
+    print(start_dir)
+    time.sleep(2)
+    IO.correct_working_directory(start_dir)
     while '4' not in response:
         response = UI.print_menu()
         if '1' in response:

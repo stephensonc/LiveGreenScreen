@@ -1,4 +1,5 @@
 import cv2
+import os
 
 
 # Creates a cv2 VideoWriter object to be used to store video
@@ -28,3 +29,13 @@ def save_image_to_video(vid, img):
 def get_image(path_to_image):
     # print("Getting image")
     return cv2.imread(path_to_image, 1)
+
+
+def correct_working_directory(directory):
+    sub_dirs = ('src', 'videos', 'backgrounds')
+    try:
+        for sub_dir in sub_dirs:
+            if sub_dir in directory:
+                    os.chdir('../')
+    except NameError:
+        print("Directory fixing failed")
