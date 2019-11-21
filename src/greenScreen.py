@@ -49,7 +49,7 @@ def process_frame(img, bg_img, color):
 def run_gs(save_video, bg_img, color):
     cap = cv2.VideoCapture(0)
     if bg_img is None:
-        path = './backgrounds/london2.jpg'
+        path = [".", "backgrounds", "london2.jpg"]
         bg_img = IO.get_image(path)
     bg_dimensions = bg_img.shape
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, bg_dimensions[0])

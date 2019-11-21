@@ -2,6 +2,7 @@ from os import system, name
 from Color import Color
 import time
 import IO
+import os
 
 
 # prints the main menu
@@ -54,7 +55,7 @@ def prompt_for_filename():
 # Prompts the user for a background image and returns it
 def prompt_for_background():
     while True:
-        path_to_image = "./backgrounds/" + prompt_for_filename()
+        path_to_image = [".", "backgrounds", prompt_for_filename()]
         background = IO.get_image(path_to_image)
         if(background is None):
             print("\nImage reading failed, please try again.\n")
