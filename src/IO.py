@@ -31,6 +31,9 @@ def get_image(path_to_image):
     return cv2.imread(path_to_image, 1)
 
 
+# Changes current directory to the top level directory of this project
+# Parameters:
+# directory: current directory as a string
 def correct_working_directory(directory):
     sub_dirs = ('src', 'videos', 'backgrounds')
     try:
