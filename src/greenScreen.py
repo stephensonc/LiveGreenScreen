@@ -65,6 +65,10 @@ def run_gs(save_video, bg_img, color):
             break
         output_image = process_frame(img, bg_img, color)
         output_image = cv2.flip(output_image, 1)
+
+        # This next line removes a toolbar on the top and bottom of the screen
+        cv2.namedWindow('Green Screen (Press esc to close)',
+                        flags=cv2.WINDOW_GUI_NORMAL + cv2.WINDOW_AUTOSIZE)
         cv2.imshow('Green Screen (Press esc to close)', output_image)
         if save_video:
             IO.save_image_to_video(vid, output_image)
