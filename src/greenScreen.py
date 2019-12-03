@@ -51,10 +51,8 @@ def run_gs(save_video, bg_img, color):
     cap = cv2.VideoCapture(0)
     time.sleep(3)
     if bg_img is None:
-        # path = [".", "backgrounds", "london2.jpg"]
-        # bg_img = IO.get_image(path)
-        time.sleep(3)
-        success, bg_img = cap.read()
+        path = [".", "backgrounds", "london2.jpg"]
+        bg_img = IO.get_image(path)
     bg_dimensions = bg_img.shape
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, bg_dimensions[0])
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, bg_dimensions[1])

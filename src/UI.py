@@ -26,21 +26,26 @@ def clear_screen():
 # TODO: Input handling so that color is never left unassigned
 # sets the color detected by the program
 def prompt_for_color():
-    clear_screen()
-    print("Choose a color for your screen:")
-    print("1. Green")
-    print("2. Blue")
-    response = input()
-    isValid = False
-    while(not isValid):
-        if '1' or 'GREEN' in response.upper():
-            isValid = True
+    invalid = True
+    while(invalid):
+        clear_screen()
+        print("Choose a color for your screen:")
+        print("1. Green")
+        print("2. Blue")
+        response = input()
+        if '1' in response or 'GREEN' in response.upper():
+            invalid = False
+            print("Setting color to green")
             return Color('green')
-        elif '2' or 'BLUE' in response.upper():
-            isValid = True
+        elif '2' in response or 'BLUE' in response.upper():
+            invalid = False
+            print("Setting color to blue")
+            time.sleep(2)
             return Color('blue')
         else:
-            print("Response not found, please try again")
+            print("Response: ", "\"", response, "\"",
+                  " not found, please try again")
+            time.sleep(2)
 
 
 # Asks if the user wants to save a video
