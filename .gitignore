@@ -2,4 +2,3 @@
 *.pyc
 src/__pycache__/
 src/processImage.py
-backgrounds/
