@@ -20,7 +20,7 @@ This program is designed as a portable and accessible live green screen program.
 - **Windows:**
   - Open Command Prompt
   - In Command Prompt, navigate to the top level directory
-  - Type `python3 ./src/Main.py`
+  - Type `python3 \src\Main.py`
 - **Linux:**
   - Navigate to the top level directory in Terminal
   - Enter the command `./run.sh`

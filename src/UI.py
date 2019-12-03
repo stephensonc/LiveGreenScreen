@@ -31,13 +31,16 @@ def prompt_for_color():
     print("1. Green")
     print("2. Blue")
     response = input()
-    if '1' in response:
-        return Color('green')
-    elif '2' in response:
-        return Color('blue')
-    else:
-        print("Response not found, please try again")
-        return Color('green')
+    isValid = False
+    while(not isValid):
+        if '1' or 'GREEN' in response.upper():
+            isValid = True
+            return Color('green')
+        elif '2' or 'BLUE' in response.upper():
+            isValid = True
+            return Color('blue')
+        else:
+            print("Response not found, please try again")
 
 
 # Asks if the user wants to save a video
