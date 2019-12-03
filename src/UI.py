@@ -23,6 +23,7 @@ def clear_screen():
         system('clear')  # for Linux and Mac
 
 
+# TODO: Input handling so that color is never left unassigned
 # sets the color detected by the program
 def prompt_for_color():
     clear_screen()
@@ -36,6 +37,7 @@ def prompt_for_color():
         return Color('blue')
     else:
         print("Response not found, please try again")
+        return Color('green')
 
 
 # Asks if the user wants to save a video
