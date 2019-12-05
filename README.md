@@ -26,7 +26,8 @@ This program is designed as a portable and accessible live green screen program.
 - **Windows:**
   - Open File Explorer
   - In File Explorer, navigate to the top level directory of this project
-  - Double click `run.bat`
+  - Double click `LiveGreenScreen.bat`<br>
+  _Note: It may be useful to make a shortcut for the above file for future use._ 
 
 - **MacOS:**
   - Open a Terminal and navigate to the "src" folder in this project
@@ -34,7 +35,7 @@ This program is designed as a portable and accessible live green screen program.
 
 - **Linux:**
   - Navigate to the top level directory of this project in Terminal
-  - Enter the command `./run.sh`
+  - Enter the command `./LiveGreenScreen.sh`
 
 ## License:
 MIT
