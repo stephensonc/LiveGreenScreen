@@ -12,14 +12,14 @@ This program is designed as a portable and accessible live green screen program.
     * `python -m pip install --upgrade pip --user`
     * `pip3 install opencv-python --user`
 
+- **MacOS:**
+  * Follow instructions found [here:](https://www.pyimagesearch.com/2018/08/17/install-opencv-4-on-macos/)
+
 - **Linux:**
   * In a Terminal window, type in `sudo apt-get install python3.6`
+  * Enter your user password
   * Next, type `sudo apt-get install python-opencv`
-  * To check that everything installed properly, enter `python3` and then enter the following commands:
-  ```Python
-  import cv2
-  print(cv2.__version__)
-  ```
+  * run `sudo apt-get update`
 
 
 ## Usage:
@@ -27,8 +27,14 @@ This program is designed as a portable and accessible live green screen program.
   - Open File Explorer
   - In File Explorer, navigate to the top level directory of this project
   - Double click `run.bat`
+
+- **MacOS:**
+  - Open a Terminal and navigate to the "src" folder in this project
+  - Enter `python3 Main.py` into the terminal to run the program.
+
 - **Linux:**
   - Navigate to the top level directory of this project in Terminal
   - Enter the command `./run.sh`
 
 ## License:
+MIT
