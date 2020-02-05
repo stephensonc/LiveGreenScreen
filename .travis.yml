@@ -7,4 +7,4 @@ install:
   - pip install -r requirements.txt
 script:
   - python3 --version
-  - pipenv run lint --check
+  - pipenv run ./linter_scripts/lint --check
