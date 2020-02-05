@@ -7,4 +7,4 @@ install:
   - pip install -r requirements.txt
 script:
   - python3 --version
-  - pipenv run lint --check
+  - PIPENV_IGNORE_VIRTUALENVS=1 pipenv run lint --check
