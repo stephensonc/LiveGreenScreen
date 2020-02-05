@@ -2,9 +2,13 @@ language: python
 python: 3.6.9
 rvm:
   - 3.6.9
+env:
+  global:
+    - PIPENV_VENV_IN_PROJECT=1
+    - PIPENV_IGNORE_VIRTUALENVS=1
 cache: pip
 install:
   - pip install -r requirements.txt
 script:
   - python3 --version
-  - PIPENV_IGNORE_VIRTUALENVS=1 pipenv run lint --check
+  - pipenv run lint --check
