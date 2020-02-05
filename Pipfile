@@ -15,7 +15,6 @@ python_version = "3.6.9"
 
 [pipenv]
 allow_prereleases = true
-ignore_virtualenvs = true
 
 [scripts]
 lint = "./linter_scripts/lint.sh"
