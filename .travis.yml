@@ -4,9 +4,11 @@ env:
   global:
     - PIPENV_VENV_IN_PROJECT=1
     - PIPENV_IGNORE_VIRTUALENVS=1
+    - ./linter_scripts/lint.sh
 cache: pip
 install:
   - pip install -r requirements.txt
 script:
   - python3 --version
-  - pipenv run ./linter_scripts/lint.sh --check
+  - echo $PATH
+  - pipenv run lint --check
