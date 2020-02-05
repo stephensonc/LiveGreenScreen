@@ -8,5 +8,6 @@ env:
 cache: pip
 install:
   - pip install -r requirements.txt
+  - pipenv install --dev --three
 script:
   - pipenv run lint --check
