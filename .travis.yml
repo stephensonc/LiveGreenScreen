@@ -8,6 +8,6 @@ cache: pip
 install:
   - pip install -r requirements.txt
 script:
-  - export PATH = $PATH:./linter_scripts/lint.sh
+  - export PATH = $PATH:~/linter_scripts/lint.sh
   - python3 --version
   - pipenv run lint --check
