@@ -13,4 +13,4 @@ install:
   - pipenv install --dev --three
 script:
   - chmod +x ./linter_scripts/lint.sh
-  - lint --check
+  - ./linter_scripts/lint.sh --check
