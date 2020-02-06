@@ -8,6 +8,8 @@ env:
 cache: pip
 install:
   # - pip install -r requirements.txt
+  - pip install --upgrade pip
+  - pip install pipenv
   - pipenv install --dev --three
 script:
   - ls -a
