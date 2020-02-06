@@ -12,5 +12,5 @@ install:
   - pip install pipenv
   - pipenv install --dev --three
 script:
-  - ls -a
   - pipenv run lint --check
+  - lint --check
