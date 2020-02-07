@@ -1,7 +1,7 @@
 from os import system, name
 from Color import Color
 import time
-import IO
+import custom_io
 import os
 
 
@@ -17,41 +17,40 @@ def print_menu():
 
 
 def clear_screen():
-    if name == 'nt':  # For windows users
-        system('cls')
+    if name == "nt":  # For windows users
+        system("cls")
     else:
-        system('clear')  # for Linux and Mac
+        system("clear")  # for Linux and Mac
 
 
 # TODO: Input handling so that color is never left unassigned
 # sets the color detected by the program
 def prompt_for_color():
     invalid = True
-    while(invalid):
+    while invalid:
         clear_screen()
         print("Choose a color for your screen:")
         print("1. Green")
         print("2. Blue")
         response = input()
-        if '1' in response or 'GREEN' in response.upper():
+        if "1" in response or "GREEN" in response.upper():
             invalid = False
             print("Setting color to green")
-            return Color('green')
-        elif '2' in response or 'BLUE' in response.upper():
+            return Color("green")
+        elif "2" in response or "BLUE" in response.upper():
             invalid = False
             print("Setting color to blue")
             time.sleep(2)
-            return Color('blue')
+            return Color("blue")
         else:
-            print("Response: ", "\"", response, "\"",
-                  " not found, please try again")
+            print("Response: ", '"', response, '"', " not found, please try again")
             time.sleep(2)
 
 
 # Asks if the user wants to save a video
 def prompt_for_save():
     response = input("Do you want to save a video? (y/N) ").upper()
-    if 'Y' in response:
+    if "Y" in response:
         return True
     else:
         return False
@@ -74,8 +73,8 @@ def prompt_for_filename(from_dir):
 def prompt_for_background():
     while True:
         path_to_image = [".", "backgrounds", prompt_for_filename(True)]
-        background = IO.get_image(path_to_image)
-        if(background is None):
+        background = custom_io.get_image(path_to_image)
+        if background is None:
             print("\nImage reading failed, please try again.\n")
             time.sleep(2)
         else:

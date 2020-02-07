@@ -1,8 +1,8 @@
 import numpy as np
 import time
 import cv2
-import IO
-import UI
+import custom_io
+import ui
 
 DILATE_SIZE = 2
 
@@ -26,8 +26,9 @@ def process_frame(img, bg_img, color):
     # mask to detect color
     mask1 = cv2.inRange(hsv, color.min_val, color.max_val)
     # Mask refining
-    mask1 = cv2.morphologyEx(mask1, cv2.MORPH_OPEN,
-                             np.ones((DILATE_SIZE, DILATE_SIZE), np.uint8), 2)
+    mask1 = cv2.morphologyEx(
+        mask1, cv2.MORPH_OPEN, np.ones((DILATE_SIZE, DILATE_SIZE), np.uint8), 2
+    )
     mask1 = cv2.dilate(mask1, np.ones((DILATE_SIZE, DILATE_SIZE), np.uint8), 1)
     mask2 = cv2.bitwise_not(mask1)
     # resizing masks
@@ -52,16 +53,16 @@ def run_gs(save_video, bg_img, color):
     time.sleep(3)
     if bg_img is None:
         path = [".", "backgrounds", "london2.jpg"]
-        bg_img = IO.get_image(path)
+        bg_img = custom_io.get_image(path)
     bg_dimensions = bg_img.shape
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, bg_dimensions[0])
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, bg_dimensions[1])
     if save_video:
-        name = UI.prompt_for_filename(False)
-        vid = IO.create_video(name, bg_dimensions[1], bg_dimensions[0])
+        name = ui.prompt_for_filename(False)
+        vid = custom_io.create_video(name, bg_dimensions[1], bg_dimensions[0])
     print("Detecting: " + color.name)
     print(bg_dimensions)
-    while(cap.isOpened()):
+    while cap.isOpened():
         success, img = cap.read()
         if not success:
             break
@@ -69,11 +70,13 @@ def run_gs(save_video, bg_img, color):
         output_image = cv2.flip(output_image, 1)
 
         # This next line removes a toolbar on the top and bottom of the screen
-        cv2.namedWindow('Green Screen (Press esc to close)',
-                        flags=cv2.WINDOW_GUI_NORMAL + cv2.WINDOW_AUTOSIZE)
-        cv2.imshow('Green Screen (Press esc to close)', output_image)
+        cv2.namedWindow(
+            "Green Screen (Press esc to close)",
+            flags=cv2.WINDOW_Gui_NORMAL + cv2.WINDOW_AUTOSIZE,
+        )
+        cv2.imshow("Green Screen (Press esc to close)", output_image)
         if save_video:
-            IO.save_image_to_video(vid, output_image)
+            custom_io.save_image_to_video(vid, output_image)
         k = cv2.waitKey(10)
         if k == 27:
             if save_video:
