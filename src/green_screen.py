@@ -7,8 +7,6 @@ import ui
 DILATE_SIZE = 2
 
 
-# Outputs img with all pixels with the detected color replaced with the
-#     corresponding pixels from a background image
 # Parameters:
 # img: A numpy array of pixels in a given source image in BGR format
 # bg_img: A numpy array of pixels in a background image of the user's choice
@@ -18,6 +16,7 @@ DILATE_SIZE = 2
 # final_output: img, but with all pixels containing the detected color replaced
 #     with the corresponding pixels from a background image
 def process_frame(img, bg_img, color):
+    """Output img with all pixels with the detected color replaced with the corresponding pixels from a background image"""
     bg_shape = (bg_img.shape[1], bg_img.shape[0])
     # Resize image to reflect bagckround size
     img = cv2.resize(img, bg_shape)
@@ -41,7 +40,6 @@ def process_frame(img, bg_img, color):
     return final_output
 
 
-# Called once from Main and loops internally to process and display images
 # Parameters:
 # save_video: boolean from user that indicates if they want to save a video
 # bg_img: a numpy array in which each element represents a pixel in BGR format
@@ -49,6 +47,7 @@ def process_frame(img, bg_img, color):
 #     color
 # Displays processed images to the screen
 def run_gs(save_video, bg_img, color):
+    """Loop, processing and returning an image each time."""
     cap = cv2.VideoCapture(0)
     time.sleep(3)
     if bg_img is None:

@@ -10,6 +10,7 @@ class Color:
         self.name, self.min_val, self.max_val = self.set_color(color_name)
 
     def set_color(self, color_name):
+        """Return the color to search for."""
         global min_val, max_val
         color = color_name
         if color == "green":

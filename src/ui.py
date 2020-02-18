@@ -5,8 +5,8 @@ import custom_io
 import os
 
 
-# prints the main menu
 def print_menu():
+    """Print the main menu."""
     clear_screen()
     print("Menu:")
     print("1. Choose Background")
@@ -17,6 +17,7 @@ def print_menu():
 
 
 def clear_screen():
+    """Clear the screen."""
     if name == "nt":  # For windows users
         system("cls")
     else:
@@ -24,8 +25,8 @@ def clear_screen():
 
 
 # TODO: Input handling so that color is never left unassigned
-# sets the color detected by the program
 def prompt_for_color():
+    """Set the color to detect during program runtime."""
     invalid = True
     while invalid:
         clear_screen()
@@ -47,8 +48,8 @@ def prompt_for_color():
             time.sleep(2)
 
 
-# Asks if the user wants to save a video
 def prompt_for_save():
+    """Asks if the user wants to save a video"""
     response = input("Do you want to save a video? (y/N) ").upper()
     if "Y" in response:
         return True
@@ -56,10 +57,10 @@ def prompt_for_save():
         return False
 
 
-# Asks the user to input a filename
 # Parameters:
 # from_dir: boolean, specifies if a selection is to be made from a directory
 def prompt_for_filename(from_dir):
+    """Asks the user to input a file name."""
     if from_dir:
         folder = os.path.join(".", "backgrounds")
         print("Please enter the name of the file you would like to open")
@@ -69,8 +70,8 @@ def prompt_for_filename(from_dir):
         return input("Please enter the name of your file (no extension): ")
 
 
-# Prompts the user for a background image and returns it
 def prompt_for_background():
+    """Prompts the user for a background image and returns it"""
     while True:
         path_to_image = [".", "backgrounds", prompt_for_filename(True)]
         background = custom_io.get_image(path_to_image)

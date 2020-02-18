@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Running green screen program..."
-python3 src/Main.py
+pipenv run python3 ./src/main.py
