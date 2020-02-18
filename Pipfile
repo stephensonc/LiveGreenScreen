@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+
+[dev-packages]
+opencv-python = "*"
+black = "*"
+pylint = "*"
+flake8 = "*"
+
+[requires]
+python_version = "3.6.9"
+
+[pipenv]
+allow_prereleases = true
+
+[scripts]
+lint = "./scripts/lint.sh"

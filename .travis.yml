@@ -1,9 +1,16 @@
 language: python
 python: 3.6.9
-rvm:
-  - 3.6.9
+env:
+  global:
+    - PIPENV_VENV_IN_PROJECT=1
+    - PIPENV_VERBOSITY=-1
+    #- PIPENV_IGNORE_VIRTUALENVS=1
 cache: pip
 install:
-  - pip install -r requirements.txt
+  # - pip install -r requirements.txt
+  - pip install --upgrade pip
+  - pip install pipenv
+  - pipenv install --dev --three
 script:
-  - python3 --version
+  - chmod +x ./linter_scripts/lint.sh
+  - pipenv run ./linter_scripts/lint.sh --check

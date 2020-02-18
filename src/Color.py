@@ -1,21 +1,25 @@
+"""This file contains the Color class."""
 import numpy as np
 
 
 class Color:
-    name = ''
-    min_val = 0
-    max_val = 0
+    """Facilitate storage of color values."""
+
+    name = ""
+    MIN_VAL = 0
+    MAX_VAL = 0
 
     def __init__(self, color_name):
-        self.name, self.min_val, self.max_val = self.set_color(color_name)
+        self.name, self.MIN_VAL, self.MAX_VAL = self.set_color(color_name)
 
     def set_color(self, color_name):
-        global min_val, max_val
+        """Return the color to search for."""
+        global MIN_VAL, MAX_VAL
         color = color_name
-        if(color == 'green'):
-            min_val = np.array([35, 60, 60])
-            max_val = np.array([75, 255, 255])
-        elif(color == 'blue'):
-            min_val = np.array([100, 60, 60])
-            max_val = np.array([135, 255, 255])
-        return color, min_val, max_val
+        if color == "green":
+            MIN_VAL = np.array([35, 60, 60])
+            MAX_VAL = np.array([75, 255, 255])
+        elif color == "blue":
+            MIN_VAL = np.array([100, 60, 60])
+            MAX_VAL = np.array([135, 255, 255])
+        return color, MIN_VAL, MAX_VAL
