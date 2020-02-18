@@ -43,9 +43,8 @@ def prompt_for_color():
             print("Setting color to blue")
             time.sleep(2)
             return Color("blue")
-        else:
-            print("Response: ", '"', response, '"', " not found, please try again")
-            time.sleep(2)
+        print("Response: ", '"', response, '"', " not found, please try again")
+        time.sleep(2)
 
 
 def prompt_for_save():
