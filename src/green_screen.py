@@ -20,14 +20,17 @@ DILATE_SIZE = 2
 # final_output: img, but with all pixels containing the detected color replaced
 #     with the corresponding pixels from a background image
 def process_frame(img, bg_img, color):
-    """Output img with all pixels with the detected color replaced with the corresponding pixels from a background image"""
+    """
+    Output img with all pixels with the detected color replaced with the
+    corresponding pixels from a background image
+    """
     bg_shape = (bg_img.shape[1], bg_img.shape[0])
     # Resize image to reflect bagckround size
     img = cv2.resize(img, bg_shape)
     # Converting from BGR to HSV
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # mask to detect color
-    mask1 = cv2.inRange(hsv, color.min_val, color.max_val)
+    mask1 = cv2.inRange(hsv, color.MIN_VAL, color.MAX_VAL)
     # Mask refining
     mask1 = cv2.morphologyEx(
         mask1, cv2.MORPH_OPEN, np.ones((DILATE_SIZE, DILATE_SIZE), np.uint8), 2

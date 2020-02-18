@@ -8,6 +8,7 @@ import custom_io
 
 
 def main():
+    """Facilitate runtime of the program."""
     response = ""
     background = None
     color = Color("green")

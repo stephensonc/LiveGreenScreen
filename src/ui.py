@@ -1,8 +1,8 @@
 """This file contains all functions relating to the user interface."""
 import os
+import time
 from os import system, name
 from Color import Color
-import time
 import custom_io
 
 
@@ -25,7 +25,6 @@ def clear_screen():
         system("clear")  # for Linux and Mac
 
 
-# TODO: Input handling so that color is never left unassigned
 def prompt_for_color():
     """Set the color to detect during program runtime."""
     invalid = True
@@ -52,10 +51,7 @@ def prompt_for_color():
 def prompt_for_save():
     """Asks if the user wants to save a video"""
     response = input("Do you want to save a video? (y/N) ").upper()
-    if "Y" in response:
-        return True
-    else:
-        return False
+    return True if "Y" in response else False
 
 
 # Parameters:
@@ -67,8 +63,7 @@ def prompt_for_filename(from_dir):
         print("Please enter the name of the file you would like to open")
         print(folder, ":", "\n", os.listdir(folder), "\n\n")
         return input()
-    else:
-        return input("Please enter the name of your file (no extension): ")
+    return input("Please enter the name of your file (no extension): ")
 
 
 def prompt_for_background():
