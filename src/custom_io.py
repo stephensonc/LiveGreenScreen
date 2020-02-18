@@ -1,5 +1,6 @@
-import cv2
+"""This file facilitates file input/output processes."""
 import os
+import cv2
 
 
 # Parameters:

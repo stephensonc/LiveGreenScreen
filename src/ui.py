@@ -1,8 +1,9 @@
+"""This file contains all functions relating to the user interface."""
+import os
 from os import system, name
 from Color import Color
 import time
 import custom_io
-import os
 
 
 def print_menu():

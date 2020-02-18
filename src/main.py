@@ -1,9 +1,10 @@
+"""This program facilitates the runtime of the program."""
+import os
+import time
 from Color import Color
 import green_screen
-import time
 import ui
 import custom_io
-import os
 
 
 def main():

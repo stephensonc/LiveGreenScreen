@@ -1,5 +1,9 @@
-import numpy as np
+"""
+This file contains functions pertaining to the processing of images and the
+process of displaying those images.
+"""
 import time
+import numpy as np
 import cv2
 import custom_io
 import ui

@@ -1,3 +1,4 @@
+"""This file contains the Color class."""
 import numpy as np
 
 
